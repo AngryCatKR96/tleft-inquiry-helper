@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "TestLink Data Transfer",
+  "version": "1.2.2",
+  "description": "Transfer test case data between TestLink pages",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "storage",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "TestLink Data Transfer",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "extract.js",
+        "fill.js",
+        "inject.bundle.js"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
